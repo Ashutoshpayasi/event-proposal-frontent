@@ -4,7 +4,17 @@
 /node_modules
 /.pnp
 .pnp.js
-/src
+
+/src/components/user
+/src/components/vendor
+/src/routers
+
+/src/styles
+/src/utils
+/src/contexts
+/src/Headers
+
+
 
 # testing
 /coverage
