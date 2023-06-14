@@ -5,7 +5,7 @@
   border-radius: 1%;
   box-shadow: 5px 10px 10px 10px #cccc;
   position: fixed;
-  top: 10px;
+  top: 0;
   left: 350px;
   background-color: white;
 }

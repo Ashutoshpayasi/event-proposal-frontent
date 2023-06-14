@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Register({ setLog }) {
+  
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [contact, setContactNumber] = useState('');
@@ -55,7 +56,8 @@ function Register({ setLog }) {
       contact,
       resetAnswer
     }
-    register(newUser , userType === "Vendor" ? "vendor" : "user" ).then((res) =>{
+    register(newUser , userType === "Vendor" ? "vendor" : "user" )
+    .then((res) =>{
       if(res.status === "Success"){
           toast.success("Successfully Registered" , {
             position : 'top-right'

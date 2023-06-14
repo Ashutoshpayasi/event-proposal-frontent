@@ -55,7 +55,7 @@ function Login({ setLog }) {
       </div>
       <div className='topicHolder'>Sign In to your account</div>
       <form onSubmit={handleSubmit} method='post' action='#' className='content'>
-        <input type="email" value={email} onChange={handleEmailChange}
+        <input type="email"  value={email} onChange={handleEmailChange}
           placeholder='Email' required
         />
         <input

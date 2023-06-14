@@ -19,6 +19,7 @@ export default function AllProposals() {
       SetselectedComponents(data)
     })
   }, [])
+  console.log(proposals)
   return <div>
     <div className='bannerImage'>
       <img src={partyImage} alt='Banner' />

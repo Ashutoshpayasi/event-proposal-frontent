@@ -24,7 +24,7 @@ export default function SingleProposal() {
         <div className='bodyContainer'>
             <div className='topContainer'>
                 <div className='topRow'>
-                    <div>Proposal <span className='ContactName'>{proposal.vendorId.name} Contract</span></div>
+                    <div>Proposal <span className='ContactName'>{proposal.VendorId.name} Contract</span></div>
                     <div className='SelectButton'>
                         <button
                             onClick={() => {
@@ -48,11 +48,11 @@ export default function SingleProposal() {
                         <img src={proposal.images[0]} alt='Vendor Image' />
                         <div className='column'>
                             <div className='topic1'>Name</div>
-                            <div className='details1'>{proposal.vendorId.name}</div>
+                            <div className='details1'>{proposal.VendorId.name}</div>
                         </div>
                         <div className='column'>
                             <div className='topic1'>Email</div>
-                            <div className='details1'>{proposal.vendorId.email}</div>
+                            <div className='details1'>{proposal.VendorId.email}</div>
                         </div>
                         <div className='column'>
                             <div className='topic2'>Start Date</div>
@@ -84,7 +84,7 @@ export default function SingleProposal() {
                             Food Preferences
                         </span>
                         <span className='venueDetails'>
-                            {proposal.foodPreferences}
+                            {proposal.foodprefernces}
                         </span>
                     </div>
                 </div>
@@ -106,7 +106,7 @@ export default function SingleProposal() {
                             Contact
                         </span>
                         <span className='albumdetails'>
-                            {proposal.vendorId.contact}
+                            {proposal.VendorId.contact}
                         </span>
                     </div>
                     <div className='album contact'>

@@ -76,19 +76,8 @@ function Createproposal({ setCreate, setProposals, proposals, edit, setEdit }) {
   }
   function submitProposal(e) {
     e.preventDefault();
-    let newProposal = new FormData();
-    newProposal.append("eventName", eventName);
-    newProposal.append("eventPlace", eventPlace);
-    newProposal.append("proposaltype", proposaltype);
-    newProposal.append("eventType", eventType);
-    newProposal.append("budget", budget);
-    newProposal.append("from", from);
-    newProposal.append("to", to);
-    newProposal.append("description", description);
-    newProposal.append("images", images);
-    newProposal.append("foodPreferences", foodPreferences);
-    newProposal.append("events", events);
-    newProposal.append("vendorId", userDetails.user._id)
+    let newProposal = new FormData(e.target);
+    newProposal.append("VendorId", userDetails.user._id)
     console.log(newProposal);
 
     if (edit) {
@@ -129,12 +118,12 @@ function Createproposal({ setCreate, setProposals, proposals, edit, setEdit }) {
           <div className='leftContainer'>
             <div className='fieldContainer'>
               <label>Event Name</label>
-              <input placeholder='Name' type='text' required onChange={(e) => handleNameChange(e)} value={eventName} />
+              <input placeholder='Name'  name="eventName" type='text' required onChange={(e) => handleNameChange(e)} value={eventName} />
             </div>
             <div className='leftRowContainer'>
               <div className='fieldContainer'>
                 <label htmlFor="place">Place of Event</label>
-                <select id="place" name="placeOfEvent" value={eventPlace} onChange={(e) => {
+                <select id="place" name="eventPlace" value={eventPlace} onChange={(e) => {
                   handlePlaceOfEventChange(e)
                 }}>
                   <option value={"Select"} >Select</option>
@@ -146,7 +135,7 @@ function Createproposal({ setCreate, setProposals, proposals, edit, setEdit }) {
               </div>
               <div className='fieldContainer'>
                 <label htmlFor="proposalType">Proposal Type</label>
-                <select id="proposalType" name="proposalType" value={proposaltype} onChange={(e) => {
+                <select id="proposalType" name="proposaltype" value={proposaltype} onChange={(e) => {
                   handleProposalTypeChange(e)
                 }}>
                   <option value={"Select"} >Select</option>
@@ -172,21 +161,21 @@ function Createproposal({ setCreate, setProposals, proposals, edit, setEdit }) {
               </div>
               <div className='fieldContainer'>
                 <label>Budget</label>
-                <input placeholder='Budget' id='budgetInput' type='text' required onChange={(e) => handleBudgetChange(e)} value={budget} />
+                <input placeholder='Budget' id='budgetInput' type='text' name="budget"required onChange={(e) => handleBudgetChange(e)} value={budget} />
               </div>
               <div className='fieldContainer'>
                 <label>From</label>
-                <input type='date' required onChange={(e) => handleFromChange(e)} value={from} />
+                <input type='date' name="from" required onChange={(e) => handleFromChange(e)} value={from} />
               </div>
               <div className='fieldContainer'>
                 <label>To</label>
-                <input type='date' required onChange={(e) => handleToChange(e)} value={to} />
+                <input type='date' name="to" required onChange={(e) => handleToChange(e)} value={to} />
               </div>
             </div>
             <div>
               <div className='fieldContainer'>
                 <label>Description</label>
-                <textarea placeholder='Description' id='decpInput' type='text' required onChange={(e) => handleDescriptionChange(e)} value={description} />
+                <textarea placeholder='Description' id='decpInput' type='text' name="description" required onChange={(e) => handleDescriptionChange(e)} value={description} />
               </div>
             </div>
           </div>
@@ -195,7 +184,7 @@ function Createproposal({ setCreate, setProposals, proposals, edit, setEdit }) {
             <div className="img-field">
               <div className="label-field">
                 <label>Images</label>
-                <input type="file" id="img-file" filename="images" multiple="multiple" onChange={(e) => setPreview(e.target.files)} />
+                <input type="file" id="img-file" filename="images" name="images" multiple="multiple" onChange={(e) => setPreview(e.target.files)} />
                 <label id="img-btn" htmlFor="img-file" >Add</label>
               </div>
               <div className="img-grid">
@@ -213,17 +202,18 @@ function Createproposal({ setCreate, setProposals, proposals, edit, setEdit }) {
             </div>
             <div className='foodContainer'>
               <label>Food Preferences</label>
-              <textarea placeholder='Food preferences' onChange={(e) => handleFoodPreferencesChange(e)} type='text' value={foodPreferences} />
+              <textarea placeholder='Food preferences' name="foodprefernces"onChange={(e) => handleFoodPreferencesChange(e)} type='text' value={foodPreferences} />
             </div>
             <div className='EventContianer'>
               <label>Events</label>
-              <textarea placeholder='Events available' onChange={(e) => handleEventsChange(e)} type='text' value={events} />
+              <textarea placeholder='Events available' name="events" onChange={(e) => handleEventsChange(e)} type='text' value={events} />
             </div>
           </div>
         </div>
         <hr />
         <div className='buttonContainer'>
-          <button className='submitButton'
+          <button className='submitButton' 
+          
             type='submit'
           >{edit ? "Edit" : "Add"}</button>
         </div>

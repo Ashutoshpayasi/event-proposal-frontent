@@ -7,11 +7,14 @@ import ProfileCard from './ProfileCard';
 export default function Header() {
   const { userDetails } = useAppContext();
   const [card, setCard] = useState(true);
-  const[profileImage , setProfileImage] = useState(userDetails.user.profile_pic);
+  const[profileImage , setProfileImage] = useState("");
 
   useEffect(()=>{
-    setProfileImage(profileImage);
-  } , [profileImage])
+    if(userDetails){
+      setProfileImage(userDetails.user.profile_pic)
+    }
+    //setProfileImage(profileImage);
+  } , [userDetails])
 
   if (userDetails === '') {
     return <div>

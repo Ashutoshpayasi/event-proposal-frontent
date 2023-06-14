@@ -9,7 +9,7 @@ export default function ProfileCard({setCard , setProfileImage}) {
     const navigate = useNavigate();
     const [uploadProfile , setUploadProfile] = useState('');
     function logout() {
-        setUserDetails('');
+        setUserDetails("");
         navigate('/')
     }
 
